@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+  body, html
+  {
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    margin:0;
+  }
+  .view
+  {
+    max-height: 100%;
+  }
+    .my-scroll-area
+    {
+        /*need to define both height and max-height for the outer div,
+        height should always be 100%, and max-height
+        varies the actual height*/
+        height:100%;
+        width:100%;
+
+        background-color: transparent;
+            overflow-y:auto;
+            overflow-x: hidden;
+
+        text-align: center;
+        display: inline-block;
+        position:relative;
+        margin-left:-5px;
+
+    }
+    ::-webkit-scrollbar {
+          width: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+          background-color: #b46868;
+    }
+
+    ::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<head>
+  <script src="js/myDOMFactory.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/eventListenerHandler.js"></script>
+  <script src="js/App.js"></script>
+  <script src="js/Main.js"></script>
+  <script src="js/View.js"></script>
+  <script src="js/Views.js"></script>
+  <script src="js/ViewManager.js"></script>
+  <script src="js/Net.js"></script>
+  <script src="js/MessageHandler.js"></script>
+
+  <script src="js/simpleModel.js"></script>
+  <script src="js/topicSelectionView.js"></script>
+  <script src="js/hostingOptionsView.js"></script>
+  <script src="js/gameModeSelectionView.js"></script>
+  <script src="js/sessionSelectionView.js"></script>
+  <script src="js/waitingForPlayersView.js"></script>
+  <script src="js/gameView.js"></script>
+  <script src="js/Animation.js"></script>
+  <script src="js/AudioManager.js"></script>
+
+  <script src="js/gameOverView.js"></script>
+
+</head>
+<body onload="main()" >
+</body>
+
+</html>

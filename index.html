@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<style>
+	html
+	{
+		background: #e5f2ff;
+
+	}
+	.wrap {
+                width: 650px;
+                margin: 0 auto;
+                background: #fff7e5;
+                padding: 40px;
+            }
+
+    h1, h2, h3, h4, h5, h6 {
+    color: #333333;
+font-family: ‘Arial Narrow’, sans-serif;
+
+}
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+</style>
+<head>
+	<title>AudioManager Tutorial</title>
+	<link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+ 	<link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="scripts/shBrushCSharp.js"></script>
+	<script type="text/javascript" src="scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="scripts/shBrushDelphi.js"></script>
+	<script type="text/javascript" src="scripts/shBrushDiff.js"></script>
+	<script type="text/javascript" src="scripts/shBrushGroovy.js"></script>
+	<script type="text/javascript" src="scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="scripts/shBrushPlain.js"></script>
+	<script type="text/javascript" src="scripts/shBrushPython.js"></script>
+	<script type="text/javascript" src="scripts/shBrushRuby.js"></script>
+	<script type="text/javascript" src="scripts/shBrushScala.js"></script>
+	<script type="text/javascript" src="scripts/shBrushSql.js"></script>
+	<script type="text/javascript" src="scripts/shBrushVb.js"></script>
+	<script type="text/javascript" src="scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"/>
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = 'scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+<body class="wrap">
+
+<h1>One Click Build</h1>
+
+<h2>Topics</h2>
+
+<ul>
+	<li>
+	<p>One click upload and run server</p>
+	</li>
+	<li>
+	<p>Ant Build Script</p>
+	</li>
+	<li>
+	<p>Phonegap build script</p>
+	</li>
+	<li>
+	<p>Dropbox one click install ipa</p>
+	</li>
+</ul>
+
+<h2>Prerequisites</h2>
+
+<ul>
+	<li>
+	<p>Ant needs to be installed on your machine</p>
+	</li>
+	<li>
+	<p>You need an aws ec2 instance set up</p>
+	</li>
+	<li>
+	<p>Phonegap account</p>
+	</li>
+	<li>
+	<p>dropbox account</p>
+	</li>
+	<li>
+	<p>iOS key created</p>
+	</li>
+	<li>
+	<p>.mobileprovision file created</p>
+	</li>
+</ul>
+
+
+
+<h2>Installation Instructions</h2>
+
+<h3>PneumaticTube</h3>
+
+<p>Note that pneumatictube isn&rsquo;t strictly necessary as you can simply copy the files you need to your dropbox account by hand, this just makes the process a little easier.</p>
+
+<p>The ant script uses pneumatictube and it must be downloaded and set up before it will work.</p>
+
+<p>Follow the link below to download it</p>
+
+<p>https://github.com/hartez/PneumaticTube/releases/download/1.0.2/PneumaticTube.zip</p>
+
+<p>Once extracted, open the folder and open a command window.</p>
+
+<p>In the command window type &quot;pneumatictube&quot;</p>
+
+<p>A browser window will then open asking you to enter in your dropbox details and allow the program access to your dropbox.</p>
+
+<p>Once this step has been completed, copy the path where &quot;pneumaticTube.exe&quot; is, and add it to your path environment variable.</p>
+
+<h3>Download template</h3>
+
+<p>The template for your project build system can be downloaded <a href="build.zip">here.</a></p>
+
+<h3>Necessary Files</h3>
+
+<p>First and foremost, all the files in the template project given are needed unless otherwise told, so don&rsquo;t delete any. One file you will need to add to get this to work is your projectTestServer.pem file given to you for your aws ec2 instance, the name of this file must be called &ldquo;projectTestServer.pem&rdquo;, if it isn&rsquo;t, rename it. Place this in the keys folder from the zip file you uploaded above. This folder can be found from &ldquo;build/keys&rdquo; in the zip you should have already downloaded.</p>
+
+<p>The other file you will need is your .mobileprovision file, your Lecturer will show you how to obtain this file. It will need to be placed inside the build_files folder in the directory &ldquo;build/build_files&rdquo;.</p>
+
+<h3>Build Script</h3>
+
+<p>Open the build.xml script, the only thing you will need to change is anywhere the string &ldquo;&lt;ip address&gt;&rdquo; is, you will need to replace it with the ip address of your server. Don&rsquo;t touch anything else.</p>
+
+<h3>Server Files</h3>
+
+<p>Drop all of your server files into the &ldquo;server_files&rdquo; folder found inside &ldquo;build/server_files&rdquo; of the template project you just downloaded. Do not delete the &ldquo;run&rdquo; file found in this directory as it is needed. You will also need to rename your server to &ldquo;server.py&rdquo; if you have not already done so.</p>
+
+<h3>Project Files</h3>
+
+<p>All of your project files, including your index.html and all js files must be placed inside the directory &ldquo;example_project_directory&rdquo;. If you wish to change the name of this folder, go to &ldquo;build/selenium/getipa.py&rdquo; and upon opening go to line 13 and change the &ldquo;project_folder_name&rdquo; to the same name as the folder you just renamed (case sensitive). It is important that the &ldquo;index.html&rdquo; and the &ldquo;config.xml&rdquo; must be directly inside the &ldquo;example_project_directory&rdquo; folder or phonegap will give you a build error.</p>
+
+<h3>Phonegap Build Script</h3>
+
+<p>Open the file &ldquo;build/selenium/getipa.py&rdquo; as we will need to change some stuff. The app_id variable on line 14 is unique to every phonegap app, in order to run this script the app_id must be the same as your actual phonegap app_id. To find this id open phonegap build and the app id will be found here</p>
+
+<p><img src="https://lh5.googleusercontent.com/zWn28KB2KjfrK9fNhKirnO4m-jLJLRXllwwe69n8qIv8p_6IcsbasWArvNFQf4fxiDlq0B-vt7bSlSQFkVAHFYfk9X0T7jPex5JxBzUDmR9v6-wbCIpWFcWyd58dXxoLqd7FEMH8" style="height:423px; width:602px" /></p>
+
+<p>copy and paste this id into the quotes for the variable assignment on line 14 of getipa.py. Also on line 11 and 12, you will need to type in your email and password in order to log into your phonegap account, keep this secure or chane your phonegap password to something other than your paypal password.</p>
+
+
+
+<h3>Setting up downloads from DropBox</h3>
+
+<p>Run the bat file called &ldquo;run_server_and_upload_ipa_to_dropbox.bat&rdquo;, if it broke you may not have installed pneumatictube/ant correctly, or read one of the previous steps wrong. If it did work you would have seen firefox magically open and upload your project files. What you probably didn&rsquo;t notice is the contents of the folder &ldquo;build/build_files&rdquo; automatically got uploaded to your dropbox account in a folder called &ldquo;project&rdquo;. Open this folder and make each of the files shareable by link, then copy these links down as you will need them in a minute.</p>
+
+
+
+<p>Here comes the hard part, you will need to recreate your manifest.plist, and index.html to match your ipa file. You may use the templates I have given you as a base, and change what you need but in order to find out the correct information you need to do the following.</p>
+
+
+
+<p>All the dropbox links you created a minute ago need to be changed to the correct format, if the links you just found look like &quot;dropbox.com/s/sdjkgherkah/sighiopa?dl=0&quot; you will need to change them to the format -&gt; &quot;dl.dropboxusercontent/s/sdjkgherkah/sighiopa&quot; this simply allows you to view the index.html and other files instead of download them.</p>
+
+
+
+<p>Once thats all done, you need to edit the manifest.plist and the index.html I have given you to reflect the information found inside your &ldquo;PhoneGapExample.ipa&rdquo;.</p>
+
+
+
+<p>Firstly, your index.html needs to point to your manifest.plist, to do this simply paste the newly formatted version of the link dropbox gave you for manifest.plist, after the url tag on line 11 of the index.html. I.e. if your manifest.plist was at the url &ldquo;manifest.plist.com&rdquo;, line 11 of the index.html will look like</p>
+
+<pre style="brush: xml">
+<xmp>
+
+<li>
+<a href="itms-services://?action=download-manifest&amp;url=https://manifest.plist.com">
+                Install Example Application</a>
+</li>
+
+</xmp>
+</pre>
+
+
+
+<p>Next you must find the &ldquo;info.plist&rdquo; file inside your phonegapexample.ipa and ensure the &ldquo;bundle version&rdquo;, &ldquo;bundle identifier&rdquo; and &ldquo;name/title&rdquo; fields all match those inside your manifest.plist. To view this file, simply rename &ldquo;phonegapexample.ipa&rdquo; to &ldquo;phonegapexample.zip&rdquo;, extract it, and open info.plist with a plist editor tool. An example of this tool can be found at &ldquo;<a href="http://plist-editor-for-windows.software.informer.com/1.0/">http://plist-editor-for-windows.software.informer.com/1.0/</a>&rdquo;. The last thing you need to do in manifest.plist is paste the formatted url for the Phonegapexample.ipa location on line 14.</p>
+
+
+
+<p>Once those few tasks are done, simply take the new index.html url you made, paste it into your browser on any registered ios test device, and a new link will always be updated for any ipa in your project. To upload a new ipa simply run the &ldquo;run_server_and_upload_ipa_to_dropbox.bat&rdquo; batch file again to build and upload your new ipa.</p>
+
+<p><br />
+ </p>
+
+
+
+
+</body>
+</html>

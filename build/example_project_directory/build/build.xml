@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<project name="wp12" default="init">
+
+<target name="latest build tar">
+	<tar destfile="./wp12.tar">
+
+	<tarfileset dir="./server_files" prefix="" preserveLeadingSlashes="true"></tarfileset>
+	
+	</tar>		
+</target>
+
+<target name="server" depends="latest build tar">
+  	
+	<path id="jsch.path">
+		<pathelement location="./lib/ant-jsch.jar" />
+		<pathelement location="./lib/jsch-0.1.50.jar" />
+	</path>
+	
+	<taskdef name="scp" classname="org.apache.tools.ant.taskdefs.optional.ssh.Scp" classpathref="jsch.path" />
+			
+	<scp todir="ubuntu@52.17.211.246:/home/ubuntu/"
+				trust="true"
+				keyfile="keys/wp12.pem"
+				passphrase="">
+		
+		<fileset file="wp12.tar"/>
+
+	</scp>
+		
+	<!-- so the latest files are taken next time --> 
+	<delete file = "wp12.tar"/> 
+
+	<taskdef name="sshexec" classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" classpathref="jsch.path" />
+		
+		
+	<sshexec host="52.17.211.246"
+						username="ubuntu"
+						trust="true"
+						keyfile="keys/wp12.pem"
+						passphrase=""
+		
+		command="
+		sudo mkdir -p /home/ubuntu/temp;
+		cd /home/ubuntu/temp;
+		sudo rm -rf *;
+		sudo tar -xvf /home/ubuntu/wp12.tar -C /home/ubuntu/temp; 
+		cd /home/ubuntu/;
+		sudo cp -a temp/* /home/ubuntu/mcq;
+		cd /home/ubuntu/mcq;
+		sudo pkill supervise;
+		sudo pkill python3;
+		sudo chmod a+x run;
+		sudo fromdos run;
+		sudo touch output.log;
+		sudo touch err.log;
+		sudo chmod a+rwx output.log;
+		sudo chmod a+rwx err.log;
+		sudo nohup supervise . >output.log 2>err.log &lt; /dev/null &amp;" 
+		
+	/>
+			
+</target>
+
+
+<target name="upload" depends="latest build tar">
+  	
+	<path id="jsch.path">
+		<pathelement location="./lib/ant-jsch.jar" />
+		<pathelement location="./lib/jsch-0.1.50.jar" />
+	</path>
+	
+	<taskdef name="scp" classname="org.apache.tools.ant.taskdefs.optional.ssh.Scp" classpathref="jsch.path" />
+			
+	<scp todir="ubuntu@52.17.211.246:/home/ubuntu/"
+				trust="true"
+				keyfile="keys/wp12.pem"
+				passphrase="">
+		
+		<fileset file="wp12.tar"/>
+
+	</scp>
+		
+	<!-- so the latest files are taken next time --> 
+	<delete file = "wp12.tar"/> 
+
+	<taskdef name="sshexec" classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" classpathref="jsch.path" />
+		
+		
+	<sshexec host="52.17.211.246"
+						username="ubuntu"
+						trust="true"
+						keyfile="keys/wp12.pem"
+						passphrase=""
+		
+		command="
+		sudo mkdir -p /home/ubuntu/temp;
+		cd /home/ubuntu/temp;
+		sudo rm -rf *;
+		sudo tar -xvf /home/ubuntu/wp12.tar -C /home/ubuntu/temp; 
+		cd /home/ubuntu/;
+		sudo cp -a temp/* /home/ubuntu/mcq;
+		cd /home/ubuntu/mcq;
+		sudo pkill supervise;
+		sudo pkill python3;" 
+		
+	/>
+			
+</target>
+
+
+
+
+
+
+</project>

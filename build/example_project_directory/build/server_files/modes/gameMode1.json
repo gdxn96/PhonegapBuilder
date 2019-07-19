@@ -1,0 +1,8 @@
+{
+	"type":"gameMode",
+	"name":"Test 2 Players 2Qs",
+	"id":"test1",
+	"time" : 5,
+	"maxPlayers":2,
+	"numberQuestions":2
+}

@@ -1,0 +1,84 @@
+{"frames": [
+
+{
+	"filename": "frame_0_delay-s.gif",
+	"frame": {"x":2,"y":2,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "frame_1_delay-s.gif",
+	"frame": {"x":404,"y":2,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "frame_2_delay-s.gif",
+	"frame": {"x":806,"y":2,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "frame_3_delay-s.gif",
+	"frame": {"x":1208,"y":2,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "frame_4_delay-s.gif",
+	"frame": {"x":2,"y":404,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "frame_5_delay-s.gif",
+	"frame": {"x":404,"y":404,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "frame_6_delay-s.gif",
+	"frame": {"x":806,"y":404,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "frame_7_delay-s.gif",
+	"frame": {"x":1208,"y":404,"w":400,"h":400},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":400},
+	"sourceSize": {"w":400,"h":400},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "loading.png",
+	"format": "RGBA8888",
+	"size": {"w":1610,"h":806},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:cd0f2a6412f3fe9dbb31d566b995e3a0:3a7614ff6d5a98746a6baabdf672590a:5294b8b30e478db5089d68a09bebcee6$"
+}
+}

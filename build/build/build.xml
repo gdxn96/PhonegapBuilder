@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<project name="project" default="init">
+
+<target name="latest build tar">
+	<tar destfile="./gd_project.tar">
+
+	<tarfileset dir="./server_files" prefix="" preserveLeadingSlashes="true"></tarfileset>
+
+	</tar>
+</target>
+
+<!-- uploads and runs the server -->
+<target name="server" depends="latest build tar">
+
+	<path id="jsch.path">
+		<pathelement location="./lib/ant-jsch.jar" />
+		<pathelement location="./lib/jsch-0.1.50.jar" />
+	</path>
+
+	<taskdef name="scp" classname="org.apache.tools.ant.taskdefs.optional.ssh.Scp" classpathref="jsch.path" />
+
+	<scp todir="ubuntu@52.17.211.246:/home/ubuntu/"
+				trust="true"
+				keyfile="keys/projectTestServer.pem"
+				passphrase="">
+
+		<fileset file="gd_project.tar"/>
+
+	</scp>
+
+	<!-- so the latest files are taken next time -->
+	<delete file = "gd_project.tar"/>
+
+	<taskdef name="sshexec" classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" classpathref="jsch.path" />
+
+
+	<sshexec host="52.17.211.246"
+						username="ubuntu"
+						trust="true"
+						keyfile="keys/projectTestServer.pem"
+						passphrase=""
+
+		command="
+		sudo mkdir -p /home/ubuntu/temp;
+		cd /home/ubuntu/temp;
+		sudo rm -rf *;
+		sudo tar -xvf /home/ubuntu/gd_project.tar -C /home/ubuntu/temp;
+		cd /home/ubuntu/;
+		sudo mkdir -p /home/ubuntu/gd_project;
+		sudo chmod 775 /home/ubuntu/gd_project;
+		sudo cp -a temp/* /home/ubuntu/gd_project;
+		cd /home/ubuntu/gd_project;
+		sudo pkill supervise;
+		sudo pkill python3;
+		sudo chmod a+x run;
+		sudo fromdos run;
+		sudo touch output.log;
+		sudo touch err.log;
+		sudo chmod a+rwx output.log;
+		sudo chmod a+rwx err.log;
+		sudo nohup supervise . >output.log 2>err.log &lt; /dev/null &amp;"
+
+	/>
+
+</target>
+
+<target name="upload" depends="latest build tar">
+
+	<path id="jsch.path">
+		<pathelement location="./lib/ant-jsch.jar" />
+		<pathelement location="./lib/jsch-0.1.50.jar" />
+	</path>
+
+	<taskdef name="scp" classname="org.apache.tools.ant.taskdefs.optional.ssh.Scp" classpathref="jsch.path" />
+
+	<scp todir="ubuntu@52.17.211.246:/home/ubuntu/"
+				trust="true"
+				keyfile="keys/projectTestServer.pem"
+				passphrase="">
+
+		<fileset file="gd_project.tar"/>
+
+	</scp>
+
+	<!-- so the latest files are taken next time -->
+	<delete file = "gd_project.tar"/>
+
+	<taskdef name="sshexec" classname="org.apache.tools.ant.taskdefs.optional.ssh.SSHExec" classpathref="jsch.path" />
+
+
+	<sshexec host="52.17.211.246"
+						username="ubuntu"
+						trust="true"
+						keyfile="keys/projectTestServer.pem"
+						passphrase=""
+
+		command="
+		sudo mkdir -p /home/ubuntu/temp;
+		cd /home/ubuntu/temp;
+		sudo rm -rf *;
+		sudo tar -xvf /home/ubuntu/gd_project.tar -C /home/ubuntu/temp;
+		cd /home/ubuntu/;
+		sudo mkdir -p /home/ubuntu/gd_project;
+		sudo chmod 775 /home/ubuntu/gd_project;
+		sudo cp -a temp/* /home/ubuntu/gd_project;
+		cd /home/ubuntu/gd_project;
+		sudo pkill supervise;
+		sudo pkill python3;"
+
+	/>
+
+</target>
+
+
+
+<target name="build" depends="server">
+	<exec dir="./selenium" executable="python" failonerror="true">
+    	<arg value="getipa.py" />
+	</exec>
+</target>
+
+<target name="dropbox" depends="build">
+	<!-- upload files to dropbox -->
+	<exec executable="pneumatictube">
+	    <arg value="-f"/>
+	    <arg value="build_files/example.mobileprovision"/>
+	    <arg value="-p"/>
+	    <arg value="project"/>
+  	</exec>
+
+  	<exec executable="pneumatictube">
+  		<arg value="-f"/>
+	    <arg value="build_files/index.html"/>
+	    <arg value="-p"/>
+	    <arg value="project"/>
+  	</exec>
+
+  	<exec executable="pneumatictube">
+  		<arg value="-f"/>
+	    <arg value="build_files/manifest.plist"/>
+	    <arg value="-p"/>
+	    <arg value="project"/>
+  	</exec>
+
+  	<exec executable="pneumatictube">
+  		<arg value="-f"/>
+	    <arg value="build_files/PhoneGapExample.ipa"/>
+	    <arg value="-p"/>
+	    <arg value="project"/>
+  	</exec>
+</target>
+
+
+
+
+</project>

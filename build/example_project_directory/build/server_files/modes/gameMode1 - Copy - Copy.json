@@ -1,0 +1,8 @@
+{
+	"type":"gameMode",
+	"name":"Classic: 2 Player 5 Qs",
+	"id":"test3",
+	"maxPlayers":2,
+	"numberQuestions":5,
+	"time" : 5
+}

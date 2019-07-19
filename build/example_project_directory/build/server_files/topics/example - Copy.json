@@ -1,0 +1,117 @@
+{	"id":"Lecturers",
+	"name":"Lecturers",
+	"type":"topic",
+	"questions":
+	[
+		{
+			"q":"Who Lectures GamesY3 for Data Structures?",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Michael Gleeson"},
+				{"answer_id":"a2","text":"Ross Palmer"},
+				{"answer_id":"a3","text":"Daire O Broin"},
+				{"answer_id":"a4","text":"Tim Casey"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Project??",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Tim Casey"},
+				{"answer_id":"a2","text":"Daire O Broin"},
+				{"answer_id":"a3","text":"Michael Gleeson"},
+				{"answer_id":"a4","text":"Ken Power"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Project??",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Ross Palmer"},
+				{"answer_id":"a2","text":"Michael Gleeson"},
+				{"answer_id":"a3","text":"Ken Power"},
+				{"answer_id":"a4","text":"Daire O Broin"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Project??",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Phillip Bourke"},
+				{"answer_id":"a2","text":"Daire O Broin"},
+				{"answer_id":"a3","text":"Michael Gleeson"},
+				{"answer_id":"a4","text":"Ken Power"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Graphics?",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Ken Power"},
+				{"answer_id":"a2","text":"Homer Simpson"},
+				{"answer_id":"a3","text":"Noel O Hara"},
+				{"answer_id":"a4","text":"Ross Palmer"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Physics?",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Yvonne Kavanagh"},
+				{"answer_id":"a2","text":"Daire O Broin"},
+				{"answer_id":"a3","text":"Monty Python"},
+				{"answer_id":"a4","text":"Ourselves"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Games Devices?",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Ross Palmer"},
+				{"answer_id":"a2","text":"Homer Simpson"},
+				{"answer_id":"a3","text":"Philip Bourke"},
+				{"answer_id":"a4","text":"Ken Power"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Games Devices?",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Daire O Broin"},
+				{"answer_id":"a2","text":"Homer Simpson"},
+				{"answer_id":"a3","text":"Philip Bourke"},
+				{"answer_id":"a4","text":"Ken Power"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who is the GamesY3 Director?",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Ken Power"},
+				{"answer_id":"a2","text":"Frankie Lyons"},
+				{"answer_id":"a3","text":"Philip Bourke"},
+				{"answer_id":"a4","text":"Daire O Broin"}
+			]
+			,"correct_answer":"a1"
+		},
+		{
+			"q":"Who Lectures GamesY3 for Web Development?",
+			"answers":
+			[ 
+				{"answer_id":"a1","text":"Paul Barry"},
+				{"answer_id":"a2","text":"Joseph Barry"},
+				{"answer_id":"a3","text":"Barry Paul"},
+				{"answer_id":"a4","text":"Barry Philip"}
+			]
+			,"correct_answer":"a1"
+		}
+	]
+}
